@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Script to manually start Hyprland with correct environment variables
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=Hyprland
+export XDG_CURRENT_DESKTOP=Hyprland
+export GDK_BACKEND=wayland,x11
+export QT_QPA_PLATFORM=wayland
+
+# Check if NVIDIA GPU is present and set appropriate variables
+if lspci | grep -i nvidia > /dev/null; then
+    export LIBVA_DRIVER_NAME=nvidia
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export WLR_NO_HARDWARE_CURSORS=1
+fi
+
+# Create runtime directory if it doesn't exist
+mkdir -p $XDG_RUNTIME_DIR
+chmod 700 $XDG_RUNTIME_DIR
+
+# Start Hyprland
+exec Hyprland

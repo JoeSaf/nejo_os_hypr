@@ -36,9 +36,5 @@ udevadm control --reload-rules
 udevadm trigger
 
 echo "$(date): Firstboot script completed"
-# Ensure XDG_RUNTIME_DIR exists and has correct permissions
-mkdir -p /run/user/1000
-chown 1000:1000 /run/user/1000
-chmod 700 /run/user/1000
 exit 0
 /usr/local/bin/setup-network

@@ -1,0 +1,16 @@
+[Unit]
+Description=Hyprland Auto Start
+After=getty@tty1.service
+
+[Service]
+Type=simple
+User=liveuser
+Environment=XDG_SESSION_TYPE=wayland
+Environment=GDK_BACKEND=wayland
+Environment=QT_QPA_PLATFORM=wayland
+ExecStart=/usr/bin/Hyprland
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

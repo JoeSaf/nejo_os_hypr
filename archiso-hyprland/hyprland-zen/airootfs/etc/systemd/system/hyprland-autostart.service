@@ -1,13 +1,22 @@
 [Unit]
 Description=Hyprland Auto Start
+After=display-manager.service
 After=getty@tty1.service
+After=firstboot.service
 
 [Service]
 Type=simple
 User=liveuser
-Environment=XDG_SESSION_TYPE=wayland
-Environment=GDK_BACKEND=wayland
-Environment=QT_QPA_PLATFORM=wayland
+Environment="XDG_RUNTIME_DIR=/run/user/1000"
+Environment="XDG_SESSION_TYPE=wayland"
+Environment="XDG_SESSION_DESKTOP=Hyprland"
+Environment="XDG_CURRENT_DESKTOP=Hyprland"
+Environment="GDK_BACKEND=wayland"
+Environment="QT_QPA_PLATFORM=wayland"
+Environment="WLR_NO_HARDWARE_CURSORS=1"
+Environment="WLR_RENDERER_ALLOW_SOFTWARE=1"
+WorkingDirectory=/home/liveuser
+ExecStartPre=/bin/sleep 1
 ExecStart=/usr/bin/Hyprland
 Restart=on-failure
 RestartSec=5

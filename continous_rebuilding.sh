@@ -2,7 +2,8 @@
 # Archiso build script
 
 # Set the configuration directory
-CONFIG_DIR="$(pwd)"
+CONFIG_DIR="$(pwd)/archiso-hyprland/hyprland-zen"
+OUT_DIR="$(pwd)/out"
 
 # Ensure the build environment is set up
 if [[ ! -d "$CONFIG_DIR/airootfs" ]]; then
@@ -10,6 +11,8 @@ if [[ ! -d "$CONFIG_DIR/airootfs" ]]; then
     exit 1
 fi
 
-# Create the ISO
-mkarchiso -v .
+# Create output directory if it doesn't exist
+mkdir -p "$OUT_DIR"
 
+# Create the ISO
+sudo mkarchiso -v -w work -o "$OUT_DIR" "$CONFIG_DIR"

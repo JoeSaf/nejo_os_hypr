@@ -1,0 +1,23 @@
+Arch Linux Hyprland Installation Guide
+=====================================
+
+This live environment comes with everything you need to install Arch Linux with Hyprland.
+
+Quick Installation Steps:
+1. Connect to the internet using NetworkManager: `nmtui` or `nmcli`
+2. Partition your disk using `cfdisk /dev/sdX` (replace X with your disk)
+3. Format the partitions (example: `mkfs.ext4 /dev/sdX1`)
+4. Mount the partitions: `mount /dev/sdX1 /mnt`
+5. Install base system: `pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-firmware fish networkmanager`
+6. Generate fstab: `genfstab -U /mnt >> /mnt/etc/fstab`
+7. Chroot into the new system: `arch-chroot /mnt`
+8. Set up time zone: `ln -sf /usr/share/zoneinfo/Region/City /etc/localtime`
+9. Set up locale: Edit `/etc/locale.gen` and run `locale-gen`
+10. Create hostname: `echo "myhostname" > /etc/hostname`
+11. Set root password: `passwd`
+12. Install and configure bootloader (e.g., GRUB)
+13. Install Hyprland and all required packages: 
+    - `pacman -S hyprland xdg-desktop-portal-hyprland waybar wofi foot ...` (add all packages from the live environment)
+
+For a more detailed installation guide, refer to the Arch Wiki:
+https://wiki.archlinux.org/title/Installation_guide

@@ -1,0 +1,124 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: rgba(26, 27, 38, 0.9);
+    color: #c0caf5;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 0;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    color: #c0caf5;
+    background-color: transparent;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+#workspaces button:hover {
+    background: rgba(96, 97, 108, 0.4);
+    box-shadow: inset 0 -3px #c0caf5;
+}
+
+#workspaces button.active {
+    background-color: rgba(96, 97, 108, 0.8);
+    box-shadow: inset 0 -3px #c0caf5;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#window {
+    padding: 0 10px;
+    margin: 6px 3px;
+    color: #c0caf5;
+    border-radius: 5px;
+}
+
+#battery {
+    background-color: rgba(96, 97, 108, 0.4);
+}
+
+#battery.charging, #battery.plugged {
+    color: #a6e3a1;
+    background-color: rgba(96, 97, 108, 0.4);
+}
+
+@keyframes blink {
+    to {
+        background-color: #cba6f7;
+        color: #1a1b26;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f7768e;
+    color: #1a1b26;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+    background-color: rgba(96, 97, 108, 0.4);
+}
+
+#memory {
+    background-color: rgba(96, 97, 108, 0.4);
+}
+
+#network {
+    background-color: rgba(96, 97, 108, 0.4);
+}
+
+#network.disconnected {
+    background-color: #f7768e;
+    color: #1a1b26;
+}
+
+#pulseaudio {
+    background-color: rgba(96, 97, 108, 0.4);
+}
+
+#pulseaudio.muted {
+    background-color: #f7768e;
+    color: #1a1b26;
+}
+
+#temperature {
+    background-color: rgba(96, 97, 108, 0.4);
+}
+
+#temperature.critical {
+    background-color: #f7768e;
+    color: #1a1b26;
+}
+
+#tray {
+    background-color: rgba(96, 97, 108, 0.4);
+}
+
+#clock {
+    background-color: rgba(96, 97, 108, 0.4);
+    font-weight: bold;
+}
+
+#window {
+    background-color: rgba(96, 97, 108, 0.4);
+}

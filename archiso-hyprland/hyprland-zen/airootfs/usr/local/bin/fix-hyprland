@@ -1,0 +1,60 @@
+#!/bin/bash
+
+echo "Hyprland ISO Environment Diagnostics Tool"
+echo "========================================"
+
+# Check if user is root
+if [[ $EUID -eq 0 ]]; then
+   echo "[WARN] This script should NOT be run as root, but as the liveuser"
+   echo "Please exit and run as liveuser"
+   exit 1
+fi
+
+echo "[INFO] Running system checks..."
+
+# Check necessary services
+echo "[CHECK] Checking systemd services..."
+systemctl --no-pager status hyprland-autostart
+systemctl --no-pager status NetworkManager
+systemctl --no-pager status bluetooth
+
+# Check graphics drivers and hardware
+echo -e "\n[CHECK] Checking graphics hardware..."
+lspci | grep -i 'vga\|3d\|display'
+echo -e "\n[CHECK] Loaded graphics modules:"
+lsmod | grep -i 'nvidia\|amdgpu\|radeon\|intel\|i915\|nouveau'
+
+# Check if Wayland is available
+echo -e "\n[CHECK] Checking for Wayland availability..."
+if [ -e /usr/share/wayland-sessions/hyprland.desktop ]; then
+    echo "[OK] Hyprland desktop file exists"
+else
+    echo "[FAIL] Hyprland desktop file not found"
+fi
+
+# Check environment variables
+echo -e "\n[CHECK] Checking environment variables..."
+echo "XDG_SESSION_TYPE=$XDG_SESSION_TYPE"
+echo "XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP"
+echo "WAYLAND_DISPLAY=$WAYLAND_DISPLAY"
+echo "GDK_BACKEND=$GDK_BACKEND"
+echo "QT_QPA_PLATFORM=$QT_QPA_PLATFORM"
+
+# Check user permissions
+echo -e "\n[CHECK] Checking user permissions..."
+groups | grep -q "input" && echo "[OK] User in input group" || echo "[FAIL] User not in input group"
+groups | grep -q "video" && echo "[OK] User in video group" || echo "[FAIL] User not in video group"
+
+# Check if required components are installed
+echo -e "\n[CHECK] Checking required packages..."
+command -v Hyprland >/dev/null && echo "[OK] Hyprland is installed" || echo "[FAIL] Hyprland not found"
+command -v waybar >/dev/null && echo "[OK] Waybar is installed" || echo "[FAIL] Waybar not found"
+command -v foot >/dev/null && echo "[OK] Foot is installed" || echo "[FAIL] Foot not found"
+
+echo -e "\n[INFO] If Hyprland is not starting correctly, try one of these commands:"
+echo "1. Restart the autostart service: systemctl --user restart hyprland-autostart"
+echo "2. Try starting Hyprland manually: Hyprland"
+echo "3. Check Hyprland logs: journalctl -xe | grep -i hypr"
+echo "4. Check if your graphics driver is loaded correctly (see above)"
+
+echo -e "\nTroubleshooting complete"

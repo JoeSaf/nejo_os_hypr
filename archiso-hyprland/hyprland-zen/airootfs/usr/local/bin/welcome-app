@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Simple welcome dialog with zenity
+zenity --info --title="Welcome to Arch Linux Hyprland" \
+    --text="Welcome to the Arch Linux Hyprland Live Environment!
+
+Username: liveuser
+Password: liveuser
+
+This live environment includes:
+• Hyprland Wayland compositor
+• Fish shell with starship prompt
+• All necessary drivers and utilities
+
+Enjoy your Arch Linux experience!"

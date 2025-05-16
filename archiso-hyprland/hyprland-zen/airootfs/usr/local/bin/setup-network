@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Ensure NetworkManager is running
+systemctl --no-pager status NetworkManager || systemctl start NetworkManager
+
+# Attempt to connect to any available networks
+echo "Attempting to connect to wireless networks..."
+nmcli radio wifi on
+nmcli device wifi rescan
+sleep 2
+
+# Try to connect to open networks if available
+OPEN_NETWORKS=$(nmcli -f SSID,SECURITY device wifi list | grep -v SECURITY | grep -- - | awk '{print $1}')
+if [ -n "$OPEN_NETWORKS" ]; then
+    FIRST_NETWORK=$(echo "$OPEN_NETWORKS" | head -1)
+    echo "Attempting to connect to open network: $FIRST_NETWORK"
+    nmcli device wifi connect "$FIRST_NETWORK" || true
+fi
+
+# Check connectivity
+if ping -c 1 archlinux.org &>/dev/null; then
+    echo "Network connection established successfully."
+else
+    echo "Please set up network manually using nmtui or nmcli."
+    # Launch network manager TUI if in a terminal
+    if [ -t 1 ]; then
+        nmtui
+    fi
+fi

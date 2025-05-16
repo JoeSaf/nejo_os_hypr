@@ -1,0 +1,64 @@
+# Starship Prompt Configuration
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Make prompt a single line instead of two lines
+[line_break]
+disabled = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+# Use custom format
+format = """
+[$username@$hostname](bold blue) in [${directory}](bold yellow)$git_branch$git_status
+$character"""
+
+[username]
+style_user = "blue bold"
+style_root = "red bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold blue)"
+disabled = false
+
+[directory]
+truncation_length = 8
+truncation_symbol = "…/"
+home_symbol = "~"
+read_only_style = "red"
+read_only = " 🔒"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 4
+truncation_symbol = ""
+format = " on [$symbol$branch]($style) "
+style = "bold green"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold blue"
+conflicted = "🏳"
+up_to_date = "✓"
+untracked = "🤷"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+
+[cmd_duration]
+min_time = 500
+format = " took [$duration](bold yellow)"

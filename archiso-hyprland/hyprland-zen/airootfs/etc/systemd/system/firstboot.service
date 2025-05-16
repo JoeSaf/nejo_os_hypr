@@ -1,0 +1,12 @@
+[Unit]
+Description=Live Environment First Boot Setup
+After=network.target
+Before=hyprland-autostart.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/firstboot.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

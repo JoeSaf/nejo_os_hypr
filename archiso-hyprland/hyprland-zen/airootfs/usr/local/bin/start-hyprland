@@ -7,6 +7,8 @@ export XDG_SESSION_DESKTOP=Hyprland
 export XDG_CURRENT_DESKTOP=Hyprland
 export GDK_BACKEND=wayland,x11
 export QT_QPA_PLATFORM=wayland
+export WLR_NO_HARDWARE_CURSORS=1
+export WLR_RENDERER_ALLOW_SOFTWARE=1
 
 # Check if NVIDIA GPU is present and set appropriate variables
 if lspci | grep -i nvidia > /dev/null; then

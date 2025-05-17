@@ -52,7 +52,7 @@
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) 󰖩",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+        "format-ethernet": "{cidr} 󰈀",
         "tooltip-format": "{ifname} via {gwaddr} 󰛳",
         "format-linked": "{ifname} (No IP) 󰈀",
         "format-disconnected": "Disconnected ⚠",

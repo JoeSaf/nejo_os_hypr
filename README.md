@@ -1,4 +1,9 @@
 # NeJo-Arch Hyprland Edition 
+
+## CAUTION!!!
+- remember to enable 3D-acceleration in your virtual machine and also increase your video memory to the final limit OR else the iso wont boot intop the live environment
+
+
 ## The following is the guidline to building by using these scripts:
 
 - for the first build, run 'build.sh' it will setup a set of common packcages, pacman.conf, the liveuser, and all other necessary initial hypr requirements under sddm

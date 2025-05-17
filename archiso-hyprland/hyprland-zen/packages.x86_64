@@ -235,3 +235,6 @@ systemd-sysvcompat
 
 # Add zenity for welcome dialog
 zenity
+
+# Goodie
+neofetch

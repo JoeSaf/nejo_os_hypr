@@ -1,0 +1,10 @@
+[Unit]
+Description=Random Wallpaper Changer
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/change-wallpaper
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run wallpaper changer every hour
+
+[Timer]
+OnBootSec=10s
+OnUnitActiveSec=1h
+RandomizedDelaySec=10s
+
+[Install]
+WantedBy=timers.target

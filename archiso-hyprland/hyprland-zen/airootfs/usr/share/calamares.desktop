@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Install NeJo Linux
+GenericName=System Installer
+Comment=Install the operating system to your disk
+Exec=/usr/local/bin/launch-calamares
+Icon=calamares
+Terminal=false
+StartupNotify=true
+Categories=System;

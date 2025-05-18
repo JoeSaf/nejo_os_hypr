@@ -123,6 +123,11 @@ wvdial
 xfsprogs
 xl2tpd
 zsh
+
+# firmware
+linux-firmware
+#aic94xx-firmware
+
 # Kernel
 linux-zen
 linux-zen-headers
@@ -236,5 +241,21 @@ systemd-sysvcompat
 # Add zenity for welcome dialog
 zenity
 
-# Goodie
-neofetch
+# Goodies
+#neofetch
+
+# Calamares-installer and its Dependencies
+calamares
+kpmcore
+yaml-cpp
+libpwquality
+#mkinitcpio-openswap
+
+# Core XWayland support
+xorg-xwayland
+libxcb
+
+# Optional additional XCB utilities if needed
+xcb-util
+xcb-util-wm
+xcb-util-keysyms

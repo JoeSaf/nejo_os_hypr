@@ -1,0 +1,6 @@
+#!/bin/bash
+export QT_QPA_PLATFORM=wayland
+export GDK_BACKEND=wayland
+# Add the next line if you continue having issues
+# export XDG_SESSION_TYPE=wayland
+calamares "$@"

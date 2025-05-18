@@ -29,4 +29,8 @@ file_permissions=(
   ["/usr/local/bin/choose-mirror"]="0:0:755"
   ["/usr/local/bin/Installation_guide"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
+  ["/usr/local/bin/launch-calamares"]="0:0:755"
+  ["/usr/local/bin/change-wallpaper.sh"]="0:0:755"
+  ["/usr/local/bin/enable-wallpaper-changer.sh"]="0:0:755"
+  ["/usr/local/bin/set-default-wallpaper.sh"]="0:0:755"
 )

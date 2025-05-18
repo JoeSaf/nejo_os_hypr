@@ -1,0 +1,11 @@
+#!/bin/bash
+# Force Calamares to use XCB (X11) backend through XWayland
+export QT_QPA_PLATFORM=xcb
+export GDK_BACKEND=x11
+
+# Launch Calamares with sudo if needed
+if [ "$(id -u)" -ne 0 ]; then
+  sudo -E calamares "$@"
+else
+  calamares "$@"
+fi

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Launch a styled YAD dialog with keybindings
+yad --text-info --no-buttons \
+    --width=700 --height=600 \
+    --center \
+    --borders=20 \
+    --title="Hyprland Keybindings (closes in 30s)" \
+    --timeout=30 \
+    --window-icon=input-keyboard \
+    --filename=<(cat <<EOF
+<span font="JetBrainsMono Nerd Font 14" foreground="#33ccff"><b>HYPRLAND KEYBINDINGS</b></span>
+
+<span font="JetBrainsMono Nerd Font Bold 12" foreground="#00ff99">APPLICATIONS</span>
+<span font="JetBrainsMono Nerd Font 11">
+  ⌘+Return    Terminal (foot)
+  ⌘+T         Terminal (foot)
+  ⌘+D         Application Launcher (wofi)
+  ⌘+N         File Manager (thunar)
+  ⌘+O         Web Browser (firefox)
+  ⌘+V         Clipboard Manager
+</span>
+
+<span font="JetBrainsMono Nerd Font Bold 12" foreground="#00ff99">WINDOW MANAGEMENT</span>
+<span font="JetBrainsMono Nerd Font 11">
+  ⌘+Q         Close active window
+  ⌘+Shift+Q   Exit Hyprland
+  ⌘+F         Toggle fullscreen
+  ⌘+Space     Toggle floating
+  ⌘+P         Toggle pseudo
+  ⌘+S         Toggle split
+</span>
+
+<span font="JetBrainsMono Nerd Font Bold 12" foreground="#00ff99">NAVIGATION</span>
+<span font="JetBrainsMono Nerd Font 11">
+  ⌘+H/J/K/L   Move focus (vim style)
+  ⌘+Arrows    Move focus (arrow keys)
+  ⌘+Shift+H/J/K/L  Move window (vim style)
+  ⌘+[1-0]     Switch to workspace 1-10
+  ⌘+Shift+[1-0]    Move window to workspace 1-10
+  ⌘+\`         Toggle special workspace
+</span>
+
+<span font="JetBrainsMono Nerd Font Bold 12" foreground="#00ff99">SYSTEM CONTROLS</span>
+<span font="JetBrainsMono Nerd Font 11">
+  ⌘+Shift+S   Screenshot region
+  Print       Screenshot full
+  Ctrl+Print  Screenshot region
+  ⌘+Shift+L   Lock screen
+  ⌘+W         Refresh waybar
+  ⌘+Escape    Logout menu
+</span>
+EOF
+) \
+    --text-align=left \
+    --fontname="JetBrainsMono Nerd Font 11" \
+    --fore="#cdd6f4" \
+    --back="rgba(30,30,46,0.9)" \
+    &

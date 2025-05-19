@@ -33,4 +33,5 @@ file_permissions=(
   ["/usr/local/bin/change-wallpaper.sh"]="0:0:755"
   ["/usr/local/bin/enable-wallpaper-changer.sh"]="0:0:755"
   ["/usr/local/bin/set-default-wallpaper.sh"]="0:0:755"
+  ["/usr/local/bin/hypr-bindings"]="0:0:755"
 )

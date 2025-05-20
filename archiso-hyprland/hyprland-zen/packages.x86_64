@@ -242,7 +242,8 @@ systemd-sysvcompat
 zenity
 
 # Goodies
-#neofetch
+#neofetch-removed-from-aur-repo(sad but its life)
+fastfetch
 yad
 
 # Calamares-installer and its Dependencies

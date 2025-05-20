@@ -1,6 +1,6 @@
 # Startup message
 function fish_greeting
-    echo "Welcome to Arch Linux Hyprland Live Environment!"
+    echo "Welcome to NeJo Arch Linux Hyprland Live Environment!"
     echo "- Username: liveuser"
     echo "- Password: liveuser"
     echo "- Type 'sudo' to get root privileges without password"
@@ -28,7 +28,7 @@ set -gx _JAVA_AWT_WM_NONREPARENTING 1
 fish_add_path $HOME/.local/bin
 
 # Aliases
-alias ls='exa --icons'
+alias ls='exa --icons -la'
 alias ll='exa --icons -la'
 alias la='exa --icons -a'
 alias cat='bat --style=plain'

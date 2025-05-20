@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Create countdown file
+COUNTDOWN_FILE=$(mktemp)
+for i in {30..1}; do
+    echo $i > $COUNTDOWN_FILE
+    sleep 1
+done &
+COUNTDOWN_PID=$!
+
+# Launch the keybindings display
 yad --text-info --no-buttons \
     --width=720 --height=620 \
     --center \
@@ -9,45 +18,39 @@ yad --text-info --no-buttons \
     --window-icon=input-keyboard \
     --filename=<(cat <<'EOF'
 ━━━━━━━━━━ HYPRLAND KEYBINDINGS ━━━━━━━━━━
-
 APPLICATIONS
-  ⌘ + Return      Terminal (foot)
-  ⌘ + T           Terminal (foot)
-  ⌘ + D           Application Launcher (wofi)
-  ⌘ + N           File Manager (thunar)
-  ⌘ + O           Web Browser (firefox)
-  ⌘ + V           Clipboard Manager
-
+ ⌘ + Return Terminal (foot)
+ ⌘ + T Terminal (foot)
+ ⌘ + D Application Launcher (wofi)
+ ⌘ + N File Manager (thunar)
+ ⌘ + O Web Browser (firefox)
+ ⌘ + V Clipboard Manager
 WINDOW MANAGEMENT
-  ⌘ + Q           Close active window
-  ⌘ + Shift + Q   Exit Hyprland
-  ⌘ + F           Toggle fullscreen
-  ⌘ + Space       Toggle floating
-  ⌘ + P           Toggle pseudo
-  ⌘ + S           Toggle split
-
+ ⌘ + Q Close active window
+ ⌘ + Shift + Q Exit Hyprland
+ ⌘ + F Toggle fullscreen
+ ⌘ + Space Toggle floating
+ ⌘ + P Toggle pseudo
+ ⌘ + S Toggle split
 NAVIGATION
-  ⌘ + H/J/K/L         Move focus (vim style)
-  ⌘ + Arrows          Move focus (arrow keys)
-  ⌘ + Shift + H/J/K/L Move window (vim style)
-  ⌘ + [1-0]           Switch to workspace 1–10
-  ⌘ + Shift + [1-0]   Move window to workspace 1–10
-  ⌘ + `              Toggle special workspace
-
+ ⌘ + H/J/K/L Move focus (vim style)
+ ⌘ + Arrows Move focus (arrow keys)
+ ⌘ + Shift + H/J/K/L Move window (vim style)
+ ⌘ + [1-0] Switch to workspace 1–10
+ ⌘ + Shift + [1-0] Move window to workspace 1–10
+ ⌘ + ` Toggle special workspace
 SYSTEM CONTROLS
-  ⌘ + Shift + S       Screenshot region
-  Print               Screenshot full
-  Ctrl + Print        Screenshot region
-  ⌘ + Shift + L       Lock screen
-  ⌘ + W               Refresh waybar
-  ⌘ + Escape          Logout menu
-
+ ⌘ + Shift + S Screenshot region
+ Print Screenshot full
+ Ctrl + Print Screenshot region
+ ⌘ + Shift + L Lock screen
+ ⌘ + W Refresh waybar
+ ⌘ + Escape Logout menu
 QUICK APPLICATION LAUNCHER
-  ⌘ + Alt + 1         Firefox
-  ⌘ + Alt + 2         Thunar
-  ⌘ + Alt + 3         btop
-  ⌘ + Alt + 4         neovim
-
+ ⌘ + Alt + 1 Firefox
+ ⌘ + Alt + 2 Thunar
+ ⌘ + Alt + 3 btop
+ ⌘ + Alt + 4 neovim
 This window will close automatically in 30 seconds
 EOF
 ) \
@@ -58,3 +61,10 @@ EOF
     --margins=20 \
     --buttons-layout=center \
     &
+
+YAD_PID=$!
+
+# When YAD closes, kill the countdown
+wait $YAD_PID
+kill $COUNTDOWN_PID 2>/dev/null
+rm $COUNTDOWN_FILE 2>/dev/null

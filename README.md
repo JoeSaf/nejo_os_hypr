@@ -3,7 +3,12 @@
 ## CAUTION!!!
 - remember to enable 3D-acceleration in your virtual machine and also increase your video memory to the final limit OR else the iso wont boot intop the live environment
 
+- each time you want to rebuild the iso, remeber to delete the work dir by typing 'sudo rm -rf work'
 
+- incase of any failed to remove dir errors, you need to unmount by using 
+
+- ' sudo umount /home/$your_username$/nejo_os_hypr/work/x86_64/airootfs/sys/firmware/efi/efivars'
+- then try rebuilding again
 ## The following is the guidline to building by using these scripts:
 
 - for the first build, run 'build.sh' it will setup a set of common packcages, pacman.conf, the liveuser, and all other necessary initial hypr requirements under sddm

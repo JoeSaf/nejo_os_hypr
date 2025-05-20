@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.5);  /* Dark but translucent background */
+    background-color: rgba(30, 30, 46, 0.8);  /* Dark but translucent background */
     color: #cdd6f4;                           /* Light text color */
     transition-property: background-color;
     transition-duration: .5s;
@@ -13,8 +13,6 @@ window#waybar {
     border: 1px solid rgba(0, 255, 153, 0.1); /* Subtle teal border to match your active border */
     margin: 8px;                              /* Margin around the bar */
     padding: 2px;
-    backdrop-filter: blur(28px);              /* Strong blur effect */
-    -webkit-backdrop-filter: blur(28px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);  /* Soft shadow for depth */
 }
 

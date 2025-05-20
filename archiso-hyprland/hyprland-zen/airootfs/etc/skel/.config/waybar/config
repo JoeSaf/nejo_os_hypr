@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 36,
+    "height": 42,
     "spacing": 4,
     "margin-top": 6,
     "margin-left": 8,
@@ -9,7 +9,7 @@
     
     "modules-left": ["hyprland/workspaces", "custom/keybindings", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory", "temperature", "battery"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "temperature", "tray", "battery"],
     
     "custom/keybindings": {
         "format": "󰮫",

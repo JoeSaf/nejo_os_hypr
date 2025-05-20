@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Kill any existing waybar instances
+killall waybar 2>/dev/null
+
+# Wait a moment for Hyprland to fully initialize
+sleep 2
+
+# Launch waybar with specific environment variables
+export XDG_CURRENT_DESKTOP=Hyprland
+export GDK_BACKEND=wayland
+
+# Start waybar and redirect errors to log file
+waybar -c /home/liveuser/.config/waybar/config -s /home/liveuser/.config/waybar/style.css > /tmp/waybar.log 2>&1 &

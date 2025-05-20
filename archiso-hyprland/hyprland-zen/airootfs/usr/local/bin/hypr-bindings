@@ -1,59 +1,71 @@
 #!/bin/bash
 
-# Launch a styled YAD dialog with keybindings
+# Create a visually appealing keybindings popup
 yad --text-info --no-buttons \
-    --width=700 --height=600 \
+    --width=720 --height=620 \
     --center \
     --borders=20 \
-    --title="Hyprland Keybindings (closes in 30s)" \
+    --title="Hyprland Keybindings" \
     --timeout=30 \
     --window-icon=input-keyboard \
-    --filename=<(cat <<EOF
-<span font="JetBrainsMono Nerd Font 14" foreground="#33ccff"><b>HYPRLAND KEYBINDINGS</b></span>
+    --filename=<(cat <<'EOF'
+<span font="JetBrainsMono Nerd Font 15" foreground="#7aa2f7"><b>━━━ HYPRLAND KEYBINDINGS ━━━</b></span>
 
-<span font="JetBrainsMono Nerd Font Bold 12" foreground="#00ff99">APPLICATIONS</span>
-<span font="JetBrainsMono Nerd Font 11">
-  ⌘+Return    Terminal (foot)
-  ⌘+T         Terminal (foot)
-  ⌘+D         Application Launcher (wofi)
-  ⌘+N         File Manager (thunar)
-  ⌘+O         Web Browser (firefox)
-  ⌘+V         Clipboard Manager
+<span font="JetBrainsMono Nerd Font 12" foreground="#73daca">APPLICATIONS</span>
+<span font="JetBrainsMono Nerd Font 11" foreground="#c0caf5">
+  <span foreground="#bb9af7">⌘ + Return</span>    Terminal (foot)
+  <span foreground="#bb9af7">⌘ + T</span>         Terminal (foot)
+  <span foreground="#bb9af7">⌘ + D</span>         Application Launcher (wofi)
+  <span foreground="#bb9af7">⌘ + N</span>         File Manager (thunar)
+  <span foreground="#bb9af7">⌘ + O</span>         Web Browser (firefox)
+  <span foreground="#bb9af7">⌘ + V</span>         Clipboard Manager
 </span>
 
-<span font="JetBrainsMono Nerd Font Bold 12" foreground="#00ff99">WINDOW MANAGEMENT</span>
-<span font="JetBrainsMono Nerd Font 11">
-  ⌘+Q         Close active window
-  ⌘+Shift+Q   Exit Hyprland
-  ⌘+F         Toggle fullscreen
-  ⌘+Space     Toggle floating
-  ⌘+P         Toggle pseudo
-  ⌘+S         Toggle split
+<span font="JetBrainsMono Nerd Font 12" foreground="#73daca">WINDOW MANAGEMENT</span>
+<span font="JetBrainsMono Nerd Font 11" foreground="#c0caf5">
+  <span foreground="#bb9af7">⌘ + Q</span>         Close active window
+  <span foreground="#bb9af7">⌘ + Shift + Q</span> Exit Hyprland
+  <span foreground="#bb9af7">⌘ + F</span>         Toggle fullscreen
+  <span foreground="#bb9af7">⌘ + Space</span>     Toggle floating
+  <span foreground="#bb9af7">⌘ + P</span>         Toggle pseudo
+  <span foreground="#bb9af7">⌘ + S</span>         Toggle split
 </span>
 
-<span font="JetBrainsMono Nerd Font Bold 12" foreground="#00ff99">NAVIGATION</span>
-<span font="JetBrainsMono Nerd Font 11">
-  ⌘+H/J/K/L   Move focus (vim style)
-  ⌘+Arrows    Move focus (arrow keys)
-  ⌘+Shift+H/J/K/L  Move window (vim style)
-  ⌘+[1-0]     Switch to workspace 1-10
-  ⌘+Shift+[1-0]    Move window to workspace 1-10
-  ⌘+\`         Toggle special workspace
+<span font="JetBrainsMono Nerd Font 12" foreground="#73daca">NAVIGATION</span>
+<span font="JetBrainsMono Nerd Font 11" foreground="#c0caf5">
+  <span foreground="#bb9af7">⌘ + H/J/K/L</span>       Move focus (vim style)
+  <span foreground="#bb9af7">⌘ + Arrows</span>        Move focus (arrow keys)
+  <span foreground="#bb9af7">⌘ + Shift + H/J/K/L</span>  Move window (vim style)
+  <span foreground="#bb9af7">⌘ + [1-0]</span>         Switch to workspace 1-10
+  <span foreground="#bb9af7">⌘ + Shift + [1-0]</span> Move window to workspace 1-10
+  <span foreground="#bb9af7">⌘ + \`</span>            Toggle special workspace
 </span>
 
-<span font="JetBrainsMono Nerd Font Bold 12" foreground="#00ff99">SYSTEM CONTROLS</span>
-<span font="JetBrainsMono Nerd Font 11">
-  ⌘+Shift+S   Screenshot region
-  Print       Screenshot full
-  Ctrl+Print  Screenshot region
-  ⌘+Shift+L   Lock screen
-  ⌘+W         Refresh waybar
-  ⌘+Escape    Logout menu
+<span font="JetBrainsMono Nerd Font 12" foreground="#73daca">SYSTEM CONTROLS</span>
+<span font="JetBrainsMono Nerd Font 11" foreground="#c0caf5">
+  <span foreground="#bb9af7">⌘ + Shift + S</span>  Screenshot region
+  <span foreground="#bb9af7">Print</span>          Screenshot full
+  <span foreground="#bb9af7">Ctrl + Print</span>   Screenshot region
+  <span foreground="#bb9af7">⌘ + Shift + L</span>  Lock screen
+  <span foreground="#bb9af7">⌘ + W</span>          Refresh waybar
+  <span foreground="#bb9af7">⌘ + Escape</span>     Logout menu
 </span>
+
+<span font="JetBrainsMono Nerd Font 12" foreground="#73daca">QUICK APPLICATION LAUNCHER</span>
+<span font="JetBrainsMono Nerd Font 11" foreground="#c0caf5">
+  <span foreground="#bb9af7">⌘ + Alt + 1</span>    Firefox
+  <span foreground="#bb9af7">⌘ + Alt + 2</span>    Thunar
+  <span foreground="#bb9af7">⌘ + Alt + 3</span>    btop
+  <span foreground="#bb9af7">⌘ + Alt + 4</span>    neovim
+</span>
+
+<span font="JetBrainsMono Nerd Font 10" foreground="#565f89">This window will close automatically in 30 seconds</span>
 EOF
 ) \
     --text-align=left \
     --fontname="JetBrainsMono Nerd Font 11" \
-    --fore="#cdd6f4" \
-    --back="rgba(30,30,46,0.9)" \
+    --fore="#c0caf5" \
+    --back="rgba(26, 27, 38, 0.95)" \
+    --margins=20 \
+    --buttons-layout=center \
     &

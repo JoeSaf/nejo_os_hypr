@@ -21,7 +21,7 @@ PS1='\[\e[0;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
 # Add /usr/local/bin to PATH
 export PATH=$PATH:/usr/local/bin
 
-# Run neofetch on shell start
-if command -v neofetch >/dev/null 2>&1; then
-    neofetch
+# Run fastfetch on shell start
+if command -v fastfetch >/dev/null 2>&1; then
+    fastfetch
 fi

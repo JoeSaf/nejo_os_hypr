@@ -1,0 +1,57 @@
+{
+  "display": {
+    "separator": " • ",
+    "color": {
+      "keys": "green",
+      "title": {
+        "foreground": "blue"
+      }
+    },
+    "size": {
+      "binaryPrefix": "si",
+      "precision": 1,
+      "decimal": {
+        "bytes": false,
+        "bits": false
+      }
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "color": {
+        "foreground": "blue"
+      }
+    },
+    {
+      "type": "kernel",
+      "key": " ",
+      "keyColor": "green"
+    },
+    {
+      "type": "uptime",
+      "key": " ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "packages",
+      "key": " ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "wm",
+      "key": " ",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "shell",
+      "key": " ",
+      "keyColor": "green"
+    }
+  ],
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/alien.txt",
+    "width": 32
+  }
+}

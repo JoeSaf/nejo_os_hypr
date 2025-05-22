@@ -35,4 +35,5 @@ file_permissions=(
   ["/usr/local/bin/set-default-wallpaper.sh"]="0:0:755"
   ["/usr/local/bin/hypr-bindings"]="0:0:755"
   ["/usr/local/bin/start-waybar"]="0:0:755"
+  ["/usr/local/bin/setup-fastfetch-art"]="0:0:755"
 )

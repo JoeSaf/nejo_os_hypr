@@ -1,18 +1,15 @@
 {
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/alien.txt",
+    "width": 32
+  },
   "display": {
-    "separator": " • ",
+    "separator": ": ",
     "color": {
       "keys": "green",
       "title": {
         "foreground": "blue"
-      }
-    },
-    "size": {
-      "binaryPrefix": "si",
-      "precision": 1,
-      "decimal": {
-        "bytes": false,
-        "bits": false
       }
     }
   },
@@ -24,34 +21,118 @@
       }
     },
     {
+      "type": "separator",
+      "string": "-------------"
+    },
+    {
+      "type": "os",
+      "key": "OS",
+      "keyColor": "green"
+    },
+    {
+      "type": "host",
+      "key": "Host",
+      "keyColor": "green"
+    },
+    {
       "type": "kernel",
-      "key": " ",
+      "key": "Kernel",
       "keyColor": "green"
     },
     {
       "type": "uptime",
-      "key": " ",
+      "key": "Uptime",
       "keyColor": "yellow"
     },
     {
       "type": "packages",
-      "key": " ",
+      "key": "Packages",
       "keyColor": "blue"
     },
     {
+      "type": "shell",
+      "key": "Shell",
+      "keyColor": "green"
+    },
+    {
+      "type": "display",
+      "key": "Display",
+      "keyColor": "green"
+    },
+    {
       "type": "wm",
-      "key": " ",
+      "key": "WM",
       "keyColor": "magenta"
     },
     {
-      "type": "shell",
-      "key": " ",
+      "type": "theme",
+      "key": "Theme",
+      "keyColor": "green"
+    },
+    {
+      "type": "icons",
+      "key": "Icons",
+      "keyColor": "green"
+    },
+    {
+      "type": "font",
+      "key": "Font",
+      "keyColor": "green"
+    },
+    {
+      "type": "cursor",
+      "key": "Cursor",
+      "keyColor": "green"
+    },
+    {
+      "type": "terminal",
+      "key": "Terminal",
+      "keyColor": "green"
+    },
+    {
+      "type": "terminalfont",
+      "key": "Terminal Font",
+      "keyColor": "green"
+    },
+    {
+      "type": "cpu",
+      "key": "CPU",
+      "keyColor": "green"
+    },
+    {
+      "type": "gpu",
+      "key": "GPU",
+      "keyColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": "Memory",
+      "keyColor": "green"
+    },
+    {
+      "type": "swap",
+      "key": "Swap",
+      "keyColor": "green"
+    },
+    {
+      "type": "disk",
+      "key": "Disk",
+      "keyColor": "green"
+    },
+    {
+      "type": "localip",
+      "key": "Local IP",
+      "keyColor": "green"
+    },
+    {
+      "type": "battery",
+      "key": "Battery",
+      "keyColor": "green"
+    },
+    {
+      "type": "locale",
+      "key": "Locale",
       "keyColor": "green"
     }
-  ],
-  "logo": {
-    "type": "file",
-    "source": "~/.config/fastfetch/alien.txt",
-    "width": 32
-  }
+  ]
 }
